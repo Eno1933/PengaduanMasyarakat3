@@ -9,65 +9,109 @@
             margin: 0;
             padding: 0;
             box-sizing: border-box;
-            font-family: Arial, sans-serif;
-        }
-        html, body {
-            height: 100%;
-            display: flex;
-            flex-direction: column;
+            font-family: 'Poppins', sans-serif;
         }
         body {
-            background-color: #f4f4f4;
+            background-color: #f0f2f5;
             color: #333;
         }
         header {
-            background: #222;
+            background: linear-gradient(135deg, #1e3c72, #2a5298);
             color: white;
-            padding: 15px 20px;
+            padding: 20px;
             text-align: center;
+            font-size: 28px;
+            font-weight: bold;
+            box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.2);
+            border-bottom: 5px solid #2a5298;
         }
         nav {
-            background: #333;
-            color: white;
-            padding: 10px;
-            text-align: center;
+            display: flex;
+            justify-content: center;
+            background: #fff;
+            padding: 15px;
+            box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
         }
         nav a {
-            color: white;
             margin: 0 15px;
             text-decoration: none;
             font-weight: bold;
+            color: #1e3c72;
+            padding: 10px 15px;
+            transition: background 0.3s, color 0.3s;
+            border-radius: 5px;
+            position: relative;
+        }
+        nav a:hover {
+            background: #1e3c72;
+            color: white;
+        }
+        nav a::after {
+            content: '';
+            position: absolute;
+            width: 100%;
+            height: 2px;
+            background: #1e3c72;
+            bottom: -5px;
+            left: 0;
+            transform: scaleX(0);
+            transition: transform 0.3s;
+        }
+        nav a:hover::after {
+            transform: scaleX(1);
         }
         .container {
-            flex: 1;
             max-width: 900px;
-            margin: 20px auto;
+            margin: 30px auto;
             padding: 20px;
             background: white;
-            box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
+            box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
             border-radius: 10px;
+            text-align: center;
+            transition: transform 0.3s;
+        }
+        .container:hover {
+            transform: translateY(-5px);
         }
         .content {
             display: none;
+            opacity: 0;
+            transition: opacity 0.5s ease-in-out;
         }
         .active {
             display: block;
+            opacity: 1;
         }
         footer {
-            background: #222;
+            background: #595f6a;
             color: white;
             text-align: center;
             padding: 15px;
+            position: fixed;
             width: 100%;
-            position: relative;
             bottom: 0;
+        }
+        h2 {
+            margin-bottom: 15px;
+            font-size: 24px;
+            color: #1e3c72;
+        }
+        p {
+            line-height: 1.6;
+            margin-bottom: 15px;
+        }
+        img {
+            border-radius: 10px;
+            margin-top: 15px;
+            max-width: 100%;
+            height: auto;
         }
     </style>
 </head>
 <body>
 
 <header>
-    <h1>Selamat Datang di Laporin</h1>
+    <h1>LaporIn</h1>
 </header>
 
 <nav>
@@ -75,7 +119,7 @@
     <a href="#" onclick="showContent('tentang')">Tentang</a>
     <a href="#" onclick="showContent('kontak')">Kontak</a>
     <a href="#" onclick="showContent('bantuan')">Bantuan</a>
-    <a href="{{ route('login') }}">Login</a>
+    <a href="{{ route('login') }}" style="background: #1e3c72; color: white;">Login</a>
 </nav>
 
 <div class="container">
