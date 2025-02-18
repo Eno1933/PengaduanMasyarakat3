@@ -83,3 +83,6 @@ Route::middleware('auth:admin')->group(function () {
     Route::get('/admin/petugas/create', [PetugasController::class, 'create'])->name('admin.petugas.create');
     Route::post('/admin/petugas', [PetugasController::class, 'store'])->name('admin.petugas.store');
 });
+
+Route::get('/admin/laporan/pdf', [AdminController::class, 'generatePdf'])
+    ->name('admin.laporan.pdf');

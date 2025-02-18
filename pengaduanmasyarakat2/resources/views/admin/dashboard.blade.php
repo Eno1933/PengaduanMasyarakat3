@@ -116,11 +116,11 @@
     {{ $pengaduan->links() }}
 </div>
 
-<!-- Logout -->
-<a href="{{ route('logout') }}" class="btn btn-danger"
-   onclick="event.preventDefault(); document.getElementById('logout-form').submit();">
-    Logout
+<!-- Tombol Generate Laporan PDF -->
+<a href="{{ route('admin.laporan.pdf') }}" class="btn btn-primary" target="_blank">
+    Generate Laporan PDF
 </a>
+
 
 <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
     @csrf
