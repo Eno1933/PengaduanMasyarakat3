@@ -3,6 +3,15 @@
 @section('content')
 <div class="container">
     <h2>Tambah Petugas</h2>
+    @if ($errors->any())
+        <div>
+            <ul>
+                @foreach ($errors->all() as $error)
+                    <li>{{ $error }}</li>
+                @endforeach
+            </ul>
+        </div>
+    @endif
     <form action="{{ route('admin.petugas.store') }}" method="POST">
         @csrf
         <div class="form-group">
